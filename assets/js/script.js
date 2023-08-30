@@ -1,7 +1,12 @@
 // Wait for the DOM to finish loading before running the quiz.
 document.addEventListener("DOMContentLoaded", function () {
-    var answer = classSolution("barbarian");
-    console.log(answer);
+    var question = questions("start");
+    var answer = answers("arrows");
+    var solution = classSolution("barbarian");
+    console.log(question);
+    console.log(answer[0][0]);
+    console.log(answer[0][1]);
+    console.log(solution);
 });
 
 /**
@@ -25,6 +30,70 @@ function questions(key) {
     };
 
     return questionDict[key];
+}
+
+/**
+ * This function holds an embedded data structure that links all the questions with their appropriate answers, and also
+ * provides the key for the following question.
+ * CHANGES TO MAKE - need to conver strings into template literals
+ */
+
+function answers(key) {
+    const answerDict = {
+        "start": [
+            ["Violence!", "bears"],
+            ["Talking", "talk"],
+        ],
+        "bears": [
+            ["I could take a bear in a fight...", "anger"],
+            ["Good source of raw materials and meat. Don't eat the liver though, it's poisonous.", "ranger"],
+            ["I love bears; many of my closest friends are bears. You'd better not mess with my bear friends!", "druid"],
+        ],
+        "talk": [
+            ["Mainly explosions and other weird stuff.", "book"],
+            ["People assume I'm lying.", "attention"],
+            ["People listen and believe what I say.", "suckers"],
+        ],
+        "anger": [
+            ["I'LL KILL ALL OF YOU!", "barbarian"],
+            ["I feel the fury of the righteous!", "paladin"],
+            ["Not especially...", "hitting"],
+        ],
+        "book": [
+            ["My autobiography, Marvelous Me. Have you read it?", "bard"],
+            ["Reading? Pah! Who has time for that?", "sorceror"],
+            ["Chuzzleworth's Compleat Cyclopedia of Magick, in 13 volumes.", "wizard"],
+            ["The Gospel According to Saint Philbious", "cleric"],
+        ],
+        "suckers": [
+            ["Hah! Yeah, totally.", "attention"],
+            ["No, they believe me because I'm telling the truth. Why do you ask?", "religion"],
+        ],
+        "hitting": [
+            ["Anything pointy or stabby works for me.", "fighter"],
+            ["My soul is my weapon. Also my fists, those too.", "monk"],
+            ["From a safe distance", "arrows"],
+        ],
+        "attention": [
+            ["No, I prefer to stick to the shadows so they don't see me coming.", "arrows"],
+            ["Darling, when you're this fabulous it would be a crime to deny people your presence!", "bard"],
+        ],
+        "religion": [
+            ["Can you spare a minute to talk about Chuzbolg the Swamp God?", "violence"],
+            ["I don't do, like, a religion as such, more a sort of general connection with Nature, man...", "druid"],
+            ["All paths lead to the same mountain. Also, check out the moon. Oooh, mystical...", "monk"],
+        ],
+        "arrows": [
+            ["What? No! I'm not a monster!", "ranger"],
+            ["Of course they are, why wouldn't they be?", "rogue"],
+        ],
+        "violence": [
+            ["Actually, I'd like to reconsider... some violence might be good.", "paladin"],
+            ["Chuzbolg is all about dialogue!", "cleric"],
+        ],
+    };
+
+    return answerDict[key];
 }
 
 /**
