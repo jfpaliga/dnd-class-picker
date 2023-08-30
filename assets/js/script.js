@@ -5,6 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
+ * This function holds all the quiz questions, linked by key:value pairs in a dictionary.
+ * CHANGES TO MAKE - need to convert strings into template literals
+ */
+
+function questions(key) {
+    const questionDict = {
+        "start": "What's your preferred method for solving life's problems?",
+        "bears": "How do you feel about bears?",
+        "talk": "What happens when you talk?",
+        "anger": "Are you angry?",
+        "book": "What's your favourite book?",
+        "suckers": "Are those people hapless suckers?",
+        "hitting": "How do you like to hit things?",
+        "attention": "Do you like being the centre of attention?",
+        "religion": "How do you feel about religion?",
+        "arrows": "Are your arrows poisoned?",
+        "violence": "You sure about the talking rather than violence?",
+    };
+
+    return questionDict[key];
+}
+
+/**
  * This function stores the classDict dictionary, which holds the final answer to the quiz. 
  * When passed a key, it will return the description of the appropriate class.
  * CHANGES TO MAKE - need to convert strings into template literals
