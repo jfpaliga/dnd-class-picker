@@ -46,6 +46,10 @@ function generateQuestion(key) {
 function generateAnswers(key) {
     let answerButtons = document.getElementsByClassName('btn');
 
+    for (let i = 0; i < answerButtons.length; i++) {
+        answerButtons[i].textContent = "";
+    }
+
     const answerDict = {
         "start": [
             ["Violence!", "bears"],
