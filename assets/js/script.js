@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", generateQuestion('start'));
 
 
 function generateQuestion(key) {
+    let gameScreen = document.getElementsByClassName('game-screen');
+    gameScreen[0].style.display = "flex";
+    gameScreen[0].style.flexDirection = "column";
+
     let questionBox = document.getElementById('question-box');
 
     const questionDict = {
@@ -27,11 +31,11 @@ function generateQuestion(key) {
         "violence": "You sure about the talking rather than violence?",
     };
 
-    if (questionDict[key] === undefined) {
-        console.log(classSolution(key));
-    } else {
+    if (Object.keys(questionDict).indexOf(key) > -1) {
         questionBox.textContent = questionDict[key];
         generateAnswers(key);
+    } else {
+        classSolution(key);
     }
 }
 
@@ -130,6 +134,12 @@ function generateAnswers(key) {
  */
 
 function classSolution(key) {
+    let gameScreen = document.getElementsByClassName('game-screen');
+    gameScreen[0].style.display = "none";
+    let classReveal = document.getElementsByClassName('class-reveal');
+    classReveal[0].style.display = "flex";
+    classReveal[0].style.flexDirection = "column";
+
     const classDict = {
         "barbarian": "You feel the fury of battle in your veins. In combat, your rage powers you through any encounter. You're also probably not smart enough to read this. You get really swole when you're angry. Basically, you're the Incredible Hulk",
         "paladin": "You are a knight of holy justice, smiting evildoers and upholding the law. You are also likely to be an insufferable goody-two-shoes. You can use most weapons and armour, and you also have some healing powers. You have a code of honour that you have to live by.",
@@ -144,5 +154,5 @@ function classSolution(key) {
         "monk": "You are the consumate martial artist, at peace with themselves and the Universe. Think Bruce Lee, only more so. YOu can fight without weapons and get extra attacks when you do so. You're super agile and can dodge almost anything.",
     };
 
-    return classDict[key];
+    classReveal[0].textContent = classDict[key];
 };
