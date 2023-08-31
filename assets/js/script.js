@@ -1,20 +1,18 @@
 // Wait for the DOM to finish loading before running the quiz.
-document.addEventListener("DOMContentLoaded", function () {
-    var question = questions("start");
-    var answer = answers("arrows");
-    var solution = classSolution("barbarian");
-    console.log(question);
-    console.log(answer[0][0]);
-    console.log(answer[0][1]);
-    console.log(solution);
-});
+document.addEventListener("DOMContentLoaded", generateQuestion('start'));
 
 /**
- * This function holds all the quiz questions, linked by key:value pairs in a dictionary.
+ * This function holds all the quiz questions, linked by key:value pairs in the questionDict object.
+ * The function then checks if the key is in the object and if so replaces the text content of the question box with that of the key value,
+ * and then runs the generateAnswers function.
+ * If the key is not in the questionDict object, the quiz has reached a conclusion and the classSolution function is called.
  * CHANGES TO MAKE - need to convert strings into template literals
  */
 
-function questions(key) {
+
+function generateQuestion(key) {
+    let questionBox = document.getElementById('question-box');
+
     const questionDict = {
         "start": "What's your preferred method for solving life's problems?",
         "bears": "How do you feel about bears?",
@@ -29,16 +27,25 @@ function questions(key) {
         "violence": "You sure about the talking rather than violence?",
     };
 
-    return questionDict[key];
+    if (questionDict[key] === undefined) {
+        console.log(classSolution(key));
+    } else {
+        questionBox.textContent = questionDict[key];
+        generateAnswers(key);
+    }
 }
 
 /**
  * This function holds an embedded data structure that links all the questions with their appropriate answers, and also
  * provides the key for the following question.
- * CHANGES TO MAKE - need to conver strings into template literals
+ * The function iterates through the array value associated with the key and populates the button text with the appropriate answer text.
+ * The function then adds an event listener to the buttons in order to call the generateQuestion function for the follow up question.
+ * CHANGES TO MAKE - need to convert strings into template literals
  */
 
-function answers(key) {
+function generateAnswers(key) {
+    let answerButtons = document.getElementsByClassName('btn');
+
     const answerDict = {
         "start": [
             ["Violence!", "bears"],
@@ -93,7 +100,18 @@ function answers(key) {
         ],
     };
 
-    return answerDict[key];
+    let choices = answerDict[key];
+
+    for (let i = 0; i < choices.length; i++) {
+        answerButtons[i].textContent = choices[i][0];
+        answerButtons[i].id = choices[i][1];
+    }
+
+    for (let i = 0; i < answerButtons.length; i++) {
+        answerButtons[i].addEventListener('click', function () {
+            generateQuestion(this.id);
+        });
+    }
 }
 
 /**
