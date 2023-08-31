@@ -48,6 +48,7 @@ function generateAnswers(key) {
 
     for (let i = 0; i < answerButtons.length; i++) {
         answerButtons[i].textContent = "";
+        answerButtons[i].style.display = "inline-block";
     }
 
     const answerDict = {
@@ -112,9 +113,13 @@ function generateAnswers(key) {
     }
 
     for (let i = 0; i < answerButtons.length; i++) {
-        answerButtons[i].addEventListener('click', function () {
-            generateQuestion(this.id);
-        });
+        if (answerButtons[i].textContent === "") {
+            answerButtons[i].style.display = "none";
+        } else {
+            answerButtons[i].addEventListener('click', function () {
+                generateQuestion(this.id);
+            });
+        }
     }
 }
 
