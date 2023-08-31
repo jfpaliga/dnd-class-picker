@@ -31,12 +31,9 @@ function generateQuestion(key) {
         "violence": "You sure about the talking rather than violence?",
     };
 
-    if (Object.keys(questionDict).indexOf(key) > -1) {
-        questionBox.textContent = questionDict[key];
-        generateAnswers(key);
-    } else {
-        classSolution(key);
-    }
+    questionBox.textContent = questionDict[key];
+    generateAnswers(key);
+
 }
 
 /**
@@ -116,12 +113,16 @@ function generateAnswers(key) {
         answerButtons[i].id = choices[i][1];
     }
 
-    for (let i = 0; i < answerButtons.length; i++) {
-        if (answerButtons[i].textContent === "") {
-            answerButtons[i].style.display = "none";
+    for (let button of answerButtons) {
+        if (button.textContent === "") {
+            button.style.display = "none";
         } else {
-            answerButtons[i].addEventListener('click', function () {
-                generateQuestion(this.id);
+            button.addEventListener('click', function () {
+                if (Object.keys(answerDict).indexOf(this.id) > -1) {
+                    generateQuestion(this.id);
+                } else {
+                    classSolution(this.id);
+                }
             });
         }
     }
