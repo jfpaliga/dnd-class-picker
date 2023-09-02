@@ -113,18 +113,28 @@ function generateAnswers(key) {
         answerButtons[i].id = choices[i][1];
     }
 
-    for (let button of answerButtons) {
+    for (const button of answerButtons) {
         if (button.textContent === "") {
             button.style.display = "none";
         } else {
-            button.addEventListener('click', function () {
-                if (Object.keys(answerDict).indexOf(this.id) > -1) {
-                    generateQuestion(this.id);
-                } else {
-                    classSolution(this.id);
-                }
-            });
+            button.addEventListener('click', goNext);
         }
+    }
+}
+
+/**
+ * This function will check whether a clicked button has an id that is a key to generate further questions, if so
+ * it will call the generateQuestion function and if not it will call the classSolution function to provide the user with
+ * the final screen.
+ */
+
+function goNext() {
+    const keyArray = ["start", "bears", "talk", "anger", "book", "suckers", "hitting", "attention", "religion", "arrows", "violence"];
+
+    if (keyArray.includes(this.id)) {
+        generateQuestion(this.id);
+    } else {
+        classSolution(this.id);
     }
 }
 
