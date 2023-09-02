@@ -29,6 +29,7 @@ function generateQuestion(key) {
         "talk": "What happens when you talk?",
         "anger": "Are you angry?",
         "book": "What's your favourite book?",
+        "cthulu": "What do you think when you hear the phrase 'Cthulu fhtaqn!'?",
         "suckers": "Are those people hapless suckers?",
         "hitting": "How do you like to hit things?",
         "attention": "Do you like being the centre of attention?",
@@ -80,9 +81,13 @@ function generateAnswers(key) {
         ],
         "book": [
             ["My autobiography, Marvelous Me. Have you read it?", "bard"],
-            ["Reading? Pah! Who has time for that?", "sorceror"],
+            ["Reading? Pah! Who has time for that?", "cthulu"],
             ["Chuzzleworth's Compleat Cyclopedia of Magick, in 13 volumes.", "wizard"],
             ["The Gospel According to Saint Philbious", "cleric"],
+        ],
+        "cthulu": [
+            ["Grandad's got a cold", "sorceror"],
+            ["What is thy bidding, master?", "warlock"],
         ],
         "suckers": [
             ["Hah! Yeah, totally.", "attention"],
@@ -135,7 +140,7 @@ function generateAnswers(key) {
  */
 
 function goNext() {
-    const keyArray = ["start", "bears", "talk", "anger", "book", "suckers", "hitting", "attention", "religion", "arrows", "violence"];
+    const keyArray = ["start", "bears", "talk", "anger", "book", "cthulu", "suckers", "hitting", "attention", "religion", "arrows", "violence"];
 
     if (keyArray.includes(this.id)) {
         generateQuestion(this.id);
@@ -165,6 +170,7 @@ function classSolution(key) {
         "rogue": "You're a sneaky, thieving scoundrel. You'd rather stab someone in the back than fight face-to-face, you big cheat. You can do extra damage with surprise attacks, and you're great at hiding and stealing stuff.",
         "bard": "You're an all-singing, all-dancing popinjay. People find you strangely charming. I've no idea why. You can fight a bit, cast spells a bit, sneak a bit, talk a lot, sing, dance, act... You're Bardic music can make your allies more powerful.",
         "sorceror": "Your magical ancestry means you lucked out in the genetic lottery. Your great-grandma was a dragon, and now you're a superhuman! You can cast magical spells, and your bloodline grants you additional special powers.",
+        "warlock": "You entered into an ungodly pack with some otherwordly being, just so you could do magic? Didn't think that through, did you? You can cast magical spells, and your pact with your patron gives you other special abilities.",
         "wizard": "You studied for years to learn what sorcerors can just do with their innate charisma. Bitter much, Pointdexter? You can cast a wide range of spells, many of which may be augmented by your chosen school. You may have a familiar (a sort of magic pet).",
         "cleric": "You are a channel for your deity's power. Basically you're a Jehovah's Witness with magic. Your deity grants you the ability to cast spells, and you can control or destroy undead creatures. Despite your piety, you're also fairly handy in a fight.",
         "druid": "You're a tree-hugging hippy vegan. You probably smell of patchouli oil at best. You can cast magical spells with a nature theme, and get lots of bonuses in the wilds. Later on, you'll be able to turn into a bear, which will make veganism tricky.",
