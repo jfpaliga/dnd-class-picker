@@ -1,5 +1,11 @@
 // Wait for the DOM to finish loading before running the quiz.
-document.addEventListener("DOMContentLoaded", generateQuestion('start'));
+document.addEventListener("DOMContentLoaded", generateQuestion("start"));
+const resetButton = document.getElementById('reset-btn');
+resetButton.addEventListener("click", () => {
+    let classReveal = document.getElementsByClassName('class-reveal');
+    classReveal[0].style.display = "none";
+    generateQuestion("start");
+});
 
 /**
  * This function holds all the quiz questions, linked by key:value pairs in the questionDict object.
@@ -45,7 +51,7 @@ function generateQuestion(key) {
  */
 
 function generateAnswers(key) {
-    let answerButtons = document.getElementsByClassName('btn');
+    let answerButtons = document.getElementsByClassName('answer-btn');
 
     for (let i = 0; i < answerButtons.length; i++) {
         answerButtons[i].textContent = "";
