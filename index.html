@@ -9,8 +9,8 @@
   </head>
   <body>
     <header></header>
-    <section class="game-screen">
-      <div class="question-div">
+    <section class="main-display" id="game-screen">
+      <div class="game-div">
         <p id="question-box"></p>
       </div>
       <div class="answer-div">
@@ -20,11 +20,16 @@
         <button class="btn answer-btn"></button>
       </div>
     </section>
-    <section class="class-reveal"></section>
-    <div id="reset">
-      <button class="btn" id="reset-btn">RESET</button>
-    </div>
-    <footer></footer>
+    <section class="main-display" id="class-reveal">
+      <div class="game-div">
+        <p id="reveal-box"></p>
+      </div>
+    </section>
+    <footer>
+      <div id="reset">
+        <button class="btn" id="reset-btn">RESET</button>
+      </div>
+    </footer>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

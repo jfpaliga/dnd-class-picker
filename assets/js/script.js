@@ -1,9 +1,14 @@
 // Wait for the DOM to finish loading before running the quiz.
-document.addEventListener("DOMContentLoaded", generateQuestion("start"));
+document.addEventListener("DOMContentLoaded", () => {
+    const classReveal = document.getElementById('class-reveal');
+    classReveal.style.display = "none";
+    generateQuestion("start");
+});
+
 const resetButton = document.getElementById('reset-btn');
 resetButton.addEventListener("click", () => {
-    let classReveal = document.getElementsByClassName('class-reveal');
-    classReveal[0].style.display = "none";
+    const classReveal = document.getElementById('class-reveal');
+    classReveal.style.display = "none";
     generateQuestion("start");
 });
 
@@ -17,9 +22,9 @@ resetButton.addEventListener("click", () => {
 
 
 function generateQuestion(key) {
-    let gameScreen = document.getElementsByClassName('game-screen');
-    gameScreen[0].style.display = "flex";
-    gameScreen[0].style.flexDirection = "column";
+    let gameScreen = document.getElementById('game-screen');
+    gameScreen.style.display = "flex";
+    gameScreen.style.flexDirection = "column";
 
     let questionBox = document.getElementById('question-box');
 
@@ -156,11 +161,11 @@ function goNext() {
  */
 
 function classSolution(key) {
-    let gameScreen = document.getElementsByClassName('game-screen');
-    gameScreen[0].style.display = "none";
-    let classReveal = document.getElementsByClassName('class-reveal');
-    classReveal[0].style.display = "flex";
-    classReveal[0].style.flexDirection = "column";
+    let gameScreen = document.getElementById('game-screen');
+    gameScreen.style.display = "none";
+    let classReveal = document.getElementById('class-reveal');
+    classReveal.style.display = "flex";
+    classReveal.style.flexDirection = "column";
 
     const classDict = {
         "barbarian": "You feel the fury of battle in your veins. In combat, your rage powers you through any encounter. You're also probably not smart enough to read this. You get really swole when you're angry. Basically, you're the Incredible Hulk",
@@ -177,5 +182,7 @@ function classSolution(key) {
         "monk": "You are the consumate martial artist, at peace with themselves and the Universe. Think Bruce Lee, only more so. YOu can fight without weapons and get extra attacks when you do so. You're super agile and can dodge almost anything.",
     };
 
-    classReveal[0].textContent = classDict[key];
+    const revealBox = document.getElementById('reveal-box');
+
+    revealBox.textContent = classDict[key];
 };
