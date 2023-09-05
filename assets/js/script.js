@@ -168,21 +168,50 @@ function classSolution(key) {
     classReveal.style.flexDirection = "column";
 
     const classDict = {
-        "barbarian": "You feel the fury of battle in your veins. In combat, your rage powers you through any encounter. You're also probably not smart enough to read this. You get really swole when you're angry. Basically, you're the Incredible Hulk",
-        "paladin": "You are a knight of holy justice, smiting evildoers and upholding the law. You are also likely to be an insufferable goody-two-shoes. You can use most weapons and armour, and you also have some healing powers. You have a code of honour that you have to live by.",
-        "fighter": "You are the most vanilla class imaginable. You fight stuff. That's what you're good at. It's a living, I guess. You can use just about any weapon or type of armour and you get a ton of extra feats. You can fight pretty good, is what I'm saying.",
-        "ranger": "You like the woods, but not enough to go full druid. You can be either a master archer or a two-weapon fighter, and you have specific enemies that you're good at fighting. Later on, you can do some rubbish nature magic.",
-        "rogue": "You're a sneaky, thieving scoundrel. You'd rather stab someone in the back than fight face-to-face, you big cheat. You can do extra damage with surprise attacks, and you're great at hiding and stealing stuff.",
-        "bard": "You're an all-singing, all-dancing popinjay. People find you strangely charming. I've no idea why. You can fight a bit, cast spells a bit, sneak a bit, talk a lot, sing, dance, act... You're Bardic music can make your allies more powerful.",
-        "sorceror": "Your magical ancestry means you lucked out in the genetic lottery. Your great-grandma was a dragon, and now you're a superhuman! You can cast magical spells, and your bloodline grants you additional special powers.",
-        "warlock": "You entered into an ungodly pack with some otherwordly being, just so you could do magic? Didn't think that through, did you? You can cast magical spells, and your pact with your patron gives you other special abilities.",
-        "wizard": "You studied for years to learn what sorcerors can just do with their innate charisma. Bitter much, Pointdexter? You can cast a wide range of spells, many of which may be augmented by your chosen school. You may have a familiar (a sort of magic pet).",
-        "cleric": "You are a channel for your deity's power. Basically you're a Jehovah's Witness with magic. Your deity grants you the ability to cast spells, and you can control or destroy undead creatures. Despite your piety, you're also fairly handy in a fight.",
-        "druid": "You're a tree-hugging hippy vegan. You probably smell of patchouli oil at best. You can cast magical spells with a nature theme, and get lots of bonuses in the wilds. Later on, you'll be able to turn into a bear, which will make veganism tricky.",
-        "monk": "You are the consumate martial artist, at peace with themselves and the Universe. Think Bruce Lee, only more so. YOu can fight without weapons and get extra attacks when you do so. You're super agile and can dodge almost anything.",
+        "barbarian": `<h2>You are a Barbarian!</h2>
+        <p>You feel the fury of battle in your veins!</p>
+        <p>In combat, your rage powers you through any encounter, although you're probably not smart enough to read this.</p>
+        <p>You get really swole when you're angry. Basically, you're the Incredible Hulk</p>`,
+        "paladin": `<h2>You are a Paladin!</h2>
+        <p>You are a knight of holy justice, smiting evildoers and upholding the law. You are also likely to be an insufferable goody-two-shoes.</p>
+        <p>You can use most weapons and armour, and you also have some healing powers. You have a code of honour that you have to live by.</p>`,
+        "fighter": `<h2>You are a Fighter!</h2>
+        <p>You are the most vanilla class imaginable.</p>
+        <p>You fight stuff. That's what you're good at. It's a living, I guess.</p>
+        <p>You can use just about any weapon or type of armour and you get a ton of extra feats. You can fight pretty good, is what I'm saying.</p>`,
+        "ranger": `<h2>You are a Ranger!</h2>
+        <p>You like the woods, but not enough to go full druid.</p>
+        <p>You can be either a master archer or a two-weapon fighter, and you have specific enemies that you're good at fighting. Later on, you can do some rubbish nature magic.</p>`,
+        "rogue": `<h2>You are a Rogue!</h2>
+        <p>You're a sneaky, thieving scoundrel. You'd rather stab someone in the back than fight face-to-face, you big cheat.</p>
+        <p>You can do extra damage with surprise attacks, and you're great at hiding and stealing stuff.</p>`,
+        "bard": `<h2>You are a Bard!</h2>
+        <p>You're an all-singing, all-dancing dandy!</p>
+        <p>People find you strangely charming. I've no idea why...</p>
+        <p>You can fight a bit, cast spells a bit, sneak a bit, talk a lot, sing, dance, act... Your Bardic music can make your allies more powerful.</p>`,
+        "sorceror": `<h2>You are a Sorceror!</h2>
+        <p>Your magical ancestry means you lucked out in the genetic lottery. Your great-grandma was a dragon, and now you're a superhuman!</p>
+        <p>You can cast magical spells, and your bloodline grants you additional special powers.</p>`,
+        "warlock": `<h2>You are a Warlock!</h2>
+        <p>You entered into an ungodly pack with some otherwordly being, just so you could do magic?</p>
+        <p>Didn't think that through, did you?</p>
+        <p>You can cast magical spells, and your pact with your patron gives you other special abilities.</p>`,
+        "wizard": `<h2>You are a Wizard!</h2>
+        <p>You studied for years to learn what sorcerors can just do with their innate charisma. Bitter much, Pointdexter?</p>
+        <p>You can cast a wide range of spells, many of which may be augmented by your chosen school. You may have a familiar (a sort of magic pet).</p>`,
+        "cleric": `<h2>You are a Cleric!</h2>
+        <p>You are a channel for your deity's power. Basically, you're a Jehovah's Witness with magic.</p>
+        <p>Your deity grants you the ability to cast spells, and you can control or destroy undead creatures.</p>
+        <p>Despite your piety, you're also fairly handy in a fight.</p>`,
+        "druid": `<h2>You are a Druid!</h2>
+        <p>You're a tree-hugging hippy vegan. You probably smell of patchouli oil at best.</p>
+        <p>You can cast magical spells with a nature theme, and get lots of bonuses in the wilds. Later on, you'll be able to turn into a bear, which will make veganism tricky.</p>`,
+        "monk": `<h2>You are a Monk!</h2>
+        <p>You are the consumate martial artist, at peace with themselves and the Universe. Think Bruce Lee, only more so.</p>
+        <p>You can fight without weapons and get extra attacks when you do so. You're super agile and can dodge almost anything.</p>`,
     };
 
     const revealBox = document.getElementById('reveal-box');
 
-    revealBox.textContent = classDict[key];
+    revealBox.innerHTML = classDict[key];
 };
