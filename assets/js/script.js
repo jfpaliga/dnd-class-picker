@@ -1,16 +1,32 @@
 // Wait for the DOM to finish loading before running the quiz.
 document.addEventListener("DOMContentLoaded", () => {
-    const classReveal = document.getElementById('class-reveal');
-    classReveal.style.display = "none";
     generateQuestion("start");
 });
 
 const resetButton = document.getElementById('reset-btn');
 resetButton.addEventListener("click", () => {
-    const classReveal = document.getElementById('class-reveal');
-    classReveal.style.display = "none";
     generateQuestion("start");
 });
+
+function startScreen() {
+
+}
+
+function clearScreens(screen) {
+    const allScreens = document.getElementsByTagName('section');
+    const currentScreen = document.getElementById(screen);
+
+    for (const screens of allScreens) {
+        console.log(screens);
+        if (screens.id != screen) {
+            console.log('Not a current screen.');
+            screens.style.display = "none";
+        } else {
+            currentScreen.style.display = "flex";
+            currentScreen.style.flexDirection = "column";
+        }
+    }
+}
 
 /**
  * This function holds all the quiz questions, linked by key:value pairs in the questionDict object.
@@ -22,9 +38,7 @@ resetButton.addEventListener("click", () => {
 
 
 function generateQuestion(key) {
-    let gameScreen = document.getElementById('game-screen');
-    gameScreen.style.display = "flex";
-    gameScreen.style.flexDirection = "column";
+    clearScreens('game-screen');
 
     let questionBox = document.getElementById('question-box');
 
@@ -161,11 +175,7 @@ function goNext() {
  */
 
 function classSolution(key) {
-    let gameScreen = document.getElementById('game-screen');
-    gameScreen.style.display = "none";
-    let classReveal = document.getElementById('class-reveal');
-    classReveal.style.display = "flex";
-    classReveal.style.flexDirection = "column";
+    clearScreens('class-screen');
 
     const classDict = {
         "barbarian": `<h2>You are a Barbarian!</h2>
