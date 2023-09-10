@@ -6,6 +6,7 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     color: #EAD6A6;
     margin: 0;
+    padding-bottom: 30px;
 }
 
 header {
@@ -23,8 +24,6 @@ header {
 footer {
     display: flex;
     justify-content: center;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     margin: 20px 0;
 }
@@ -121,6 +120,7 @@ input[type="submit"] {
 
     .game-div {
         width: 65%;
+        font-size: 120%;
     }
 
     .btn {
@@ -144,5 +144,9 @@ input[type="submit"] {
 
     .btn {
         width: 20vw;
+    }
+
+    .answer-btn {
+        width: 34vw;
     }
 }
