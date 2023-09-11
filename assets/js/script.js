@@ -46,6 +46,17 @@ function clearScreens(screen) {
 }
 
 /**
+ * This function iterates over a set of buttons and clears them of text content.
+ */
+
+function clearButtons(buttons) {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].textContent = "";
+        buttons[i].style.display = "inline-block";
+    }
+}
+
+/**
  * This function holds all the quiz questions, linked by key:value pairs in the questionDict object.
  * The function then checks if the key is in the object and if so replaces the text content of the question box with that of the key value,
  * and then runs the generateAnswers function.
@@ -87,11 +98,7 @@ function generateQuestion(key) {
 
 function generateAnswers(key) {
     let answerButtons = document.getElementsByClassName('answer-btn');
-
-    for (let i = 0; i < answerButtons.length; i++) {
-        answerButtons[i].textContent = "";
-        answerButtons[i].style.display = "inline-block";
-    }
+    clearButtons(answerButtons);
 
     const answerDict = {
         "start": [
