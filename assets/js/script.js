@@ -246,4 +246,4 @@ function classSolution(key) {
     const revealBox = document.getElementById('reveal-box');
 
     revealBox.innerHTML = classDict[key];
-};
+}
