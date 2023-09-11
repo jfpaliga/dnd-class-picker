@@ -19,6 +19,7 @@ function startScreen() {
     clearScreens('start-screen');
 
     let startForm = document.getElementById('start-form');
+    document.getElementById("character-name").focus();
 
     startForm.addEventListener('submit', (event) => {
         event.preventDefault();
