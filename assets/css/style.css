@@ -28,8 +28,7 @@ footer {
     margin: 20px 0;
 }
 
-input[type="submit"] {
-    width: 40%;
+p {
     margin: 10px;
 }
 
@@ -70,7 +69,7 @@ input[type="submit"] {
     width: 5vw;
     background-color: #D45C2D;
     color: #ffffff;
-    font-size: 110%;
+    font-size: 100%;
 }
 
 .answer-btn {
@@ -83,6 +82,18 @@ input[type="submit"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+}
+
+#character-name {
+    width: 40%;
+}
+
+#start-btn {
+    margin: 10px;
+    font-size: 60%;
+    height: 4vh;
+    width: 8vw;
 }
 
 #reveal-box {
@@ -94,8 +105,7 @@ input[type="submit"] {
 
 @media screen and (max-width: 768px) {
 
-    header,
-    .btn {
+    header {
         font-size: 100%;
     }
 
@@ -114,6 +124,10 @@ input[type="submit"] {
     .answer-btn {
         width: 24vw;
     }
+
+    #character-name {
+        width: 60%;
+    }
 }
 
 @media screen and (max-width: 425px) {
@@ -130,6 +144,14 @@ input[type="submit"] {
 
     .answer-btn {
         width: 30vw;
+    }
+
+    #character-name {
+        width: 80%;
+    }
+
+    #start-btn {
+        width: 12vw;
     }
 }
 
@@ -148,5 +170,9 @@ input[type="submit"] {
 
     .answer-btn {
         width: 34vw;
+    }
+
+    #start-btn {
+        width: 14vw;
     }
 }
