@@ -51,6 +51,23 @@ The target audience would be users who already have an interest in Dungeons & Dr
 
 ### Validator Testing
 
+- HTML
+
+  - x
+
+- CSS
+
+  - No errors were returned when passing through the official W3C Jigsaw validator.
+
+- JavaScript
+
+  - No errors were returned when passing through the official Jshint validator.
+  - The following metrics were returned:
+    - There are 10 functions in this file.
+    - Function with the largest signature take 1 arguments, while the median is 1.
+    - Largest function has 11 statements in it, while the median is 4.
+    - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
+
 ## Bugs
 
 ## Deployment
