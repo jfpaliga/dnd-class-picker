@@ -73,7 +73,7 @@ p {
 
 .answer-btn {
     height: 12vh;
-    width: 12vw;
+    width: 24vw;
     margin: 5px;
 }
 
@@ -118,10 +118,6 @@ p {
 
     .btn {
         width: 12vw;
-    }
-
-    .answer-btn {
-        width: 24vw;
     }
 
     #character-name {
