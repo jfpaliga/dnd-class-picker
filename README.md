@@ -110,13 +110,13 @@ The colour scheme was selected using [colormind.io](http://colormind.io/). I wan
   - On investigation, the bug originated from the event listeners on the answer buttons.
   - Originally, the event listener called a function in the following way:
 
-  ```
+  ```JavaScript
   button.addEventListener('click', goNext());
   ```
 
   - The bug was resolved by referencing the function rather than calling it, as follows:
 
-  ```
+  ```JavaScript
   button.addEventListener('click', goNext);
   ```
 
