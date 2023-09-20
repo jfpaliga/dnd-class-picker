@@ -83,31 +83,46 @@ The colour scheme was selected using [colormind.io](http://colormind.io/). I wan
     - Largest function has 11 statements in it, while the median is 4.
     - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
 
+- Accessibility
+
+  - I confirmed the website had good accessibility via the use of Lighthouse in developer tools in the Microsoft Edge and Google Chrome browsers:
+
+  - Microsoft Edge
+
+  ![Screenshot of the Lighthouse report in the Edge browser](assets/images/edgelighthouse.png)
+
+  - Google Chrome
+
+  ![Screenshot of the Lighthouse report in the Chrome browser](assets/images/chromelighthouse.png)
+
 - Manual Testing
 
-    - I have confirmed that the form validation works on the character name field.
-    - I have confirmed that each answer button leads to the correct next question.
-    - I have confirmed that each 'solution' can be accessed by following the correct path.
-    - I have confirmed that the reset button takes you back to the start screen at every stage of the game.
+  - I have confirmed that the form validation works on the character name field.
+  - I have confirmed that each answer button leads to the correct next question.
+  - I have confirmed that each 'solution' can be accessed by following the correct path.
+  - I have confirmed that the reset button takes you back to the start screen at every stage of the game.
 
 ## Bugs
 
 - Resolved bugs
 
-    - On writing the JavaScript code for generating questions and answers, a bug was found where if one of the buttons led to the 'solution' page then all buttons would lead to that solution when clicked.
-    - On investigation, the bug originated from the event listeners on the answer buttons.
-    - Originally, the event listener called a function in the following way:
-    ```
-    button.addEventListener('click', goNext());
-    ```
-    - The bug was resolved by referencing the function rather than calling it, as follows:
-    ```
-    button.addEventListener('click', goNext);
-    ```
+  - On writing the JavaScript code for generating questions and answers, a bug was found where if one of the buttons led to the 'solution' page then all buttons would lead to that solution when clicked.
+  - On investigation, the bug originated from the event listeners on the answer buttons.
+  - Originally, the event listener called a function in the following way:
+
+  ```
+  button.addEventListener('click', goNext());
+  ```
+
+  - The bug was resolved by referencing the function rather than calling it, as follows:
+
+  ```
+  button.addEventListener('click', goNext);
+  ```
 
 - Unresolved bugs
 
-    - There are no unresolved bugs.
+  - There are no unresolved bugs.
 
 ## Deployment
 
