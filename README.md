@@ -10,6 +10,18 @@ The target audience would be users who already have an interest in Dungeons & Dr
 
 ![Screenshot from amiresponsive of the website on different media devices](assets/images/amiresponsive.png)
 
+## Design
+
+### Fonts
+
+The Josefin Sans font was chosen from [Google Fonts](https://fonts.google.com/specimen/Josefin+Sans) and if this font cannot be loaded, it will default to Sans-Serif.
+
+### Colour Scheme
+
+The colour scheme was selected using [colormind.io](http://colormind.io/). I wanted to have a colour scheme that matched with the background image, so I selected a dark green to base the palette around.
+
+![Screenshot of colour palette from colormind.io](assets/images/colourscheme.png)
+
 ## Features
 
 - Page Heading
@@ -72,6 +84,23 @@ The target audience would be users who already have an interest in Dungeons & Dr
     - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
 
 ## Bugs
+
+- Resolved bugs
+
+    - On writing the JavaScript code for generating questions and answers, a bug was found where if one of the buttons led to the 'solution' page then all buttons would lead to that solution when clicked.
+    - On investigation, the bug originated from the event listeners on the answer buttons.
+    - Originally, the event listener called a function in the following way:
+    ```
+    button.addEventListener('click', goNext());
+    ```
+    - The bug was resolved by referencing the function rather than calling it, as follows:
+    ```
+    button.addEventListener('click', goNext);
+    ```
+
+- Unresolved bugs
+
+    - There are no unresolved bugs.
 
 ## Deployment
 
