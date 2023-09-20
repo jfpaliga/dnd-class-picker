@@ -83,6 +83,13 @@ The colour scheme was selected using [colormind.io](http://colormind.io/). I wan
     - Largest function has 11 statements in it, while the median is 4.
     - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
 
+- Manual Testing
+
+    - I have confirmed that the form validation works on the character name field.
+    - I have confirmed that each answer button leads to the correct next question.
+    - I have confirmed that each 'solution' can be accessed by following the correct path.
+    - I have confirmed that the reset button takes you back to the start screen at every stage of the game.
+
 ## Bugs
 
 - Resolved bugs
