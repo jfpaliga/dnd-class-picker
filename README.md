@@ -53,7 +53,10 @@ The target audience would be users who already have an interest in Dungeons & Dr
 
 - HTML
 
-  - x
+  - No errors were returned when passing through the official W3C validator.
+  - Three warnings were given regarding the use of sections with no headings, however as all the content within each section was related I believe it is still the appropriate semantic element to use.
+
+  ![Screenshot of the warnings from the W3C validator](assets/images/htmlwarnings.png)
 
 - CSS
 
@@ -72,11 +75,20 @@ The target audience would be users who already have an interest in Dungeons & Dr
 
 ## Deployment
 
+- The website was deployed using GitHub Pages. The steps to deploy were taken as follows:
+
+  - From the GitHub repository, navigate to the Settings tab.
+  - On the nav menu on the left hand side, navigate to Pages.
+  - From the Source dropdown menu, select 'Deploy from a branch'.
+  - From the Branch dropdown menu, select 'main'.
+  - Once these have been selected, click Save and GitHub provides a link to the website.
+
 ## Credits
 
 ### Content
 
 - The text content and flow design was taken from [this](https://www.reddit.com/r/DnD/comments/cbxw9f/class_selection_chart_now_with_extra_warlock/) reddit page by user u/vaz_de_firenze.
-- The background image was taken from [itch.io](https://ezekiel-eastbrook.itch.io/1000-magical-fantasy-anime-visual-novel-backgrounds) created by Ezekiel Eastbrook.
 
 ### Media
+
+- The background image was taken from [itch.io](https://ezekiel-eastbrook.itch.io/1000-magical-fantasy-anime-visual-novel-backgrounds) created by Ezekiel Eastbrook.
