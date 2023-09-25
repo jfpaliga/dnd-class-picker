@@ -11,7 +11,8 @@ resetButton.addEventListener("click", () => {
 });
 
 /**
- * This function will take a name provided by the user and store it in the characterName variable and then when the user presses the submit button,
+ * This function will take a name provided by the user and store it in the 
+ * characterName variable and then when the user presses the submit button,
  * it will initiate the game.
  */
 
@@ -29,7 +30,8 @@ function startScreen() {
 }
 
 /**
- * This function will set the display of the sections that are not currently in focus to none and style the current section.
+ * This function will set the display of the sections that are not currently in 
+ * focus to none and style the current section.
  */
 
 function focusScreen(screen) {
@@ -47,10 +49,13 @@ function focusScreen(screen) {
 }
 
 /**
- * This function holds all the quiz questions, linked by key:value pairs in the questionDict object.
- * The function then checks if the key is in the object and if so replaces the text content of the question box with that of the key value,
- * and then runs the generateAnswers function.
- * If the key is not in the questionDict object, the quiz has reached a conclusion and the classSolution function is called.
+ * This function holds all the quiz questions, linked by key:value pairs in the 
+ * questionDict object.
+ * The function then checks if the key is in the object and if so replaces the 
+ * text content of the question box with that of the key value, and then runs 
+ * the generateAnswers function.
+ * If the key is not in the questionDict object, the quiz has reached a 
+ * conclusion and the classSolution function is called.
  */
 
 
@@ -80,10 +85,13 @@ function generateQuestion(key) {
 }
 
 /**
- * This function holds an embedded data structure that links all the questions with their appropriate answers, and also
- * provides the key for the following question.
- * The function iterates through the array value associated with the key and populates the button text with the appropriate answer text.
- * The function then adds an event listener to the buttons in order to call the generateQuestion function for the follow up question.
+ * This function holds an embedded data structure that links all the questions 
+ * with their appropriate answers, and also provides the key for the following 
+ * question.
+ * The function iterates through the array value associated with the key and 
+ * populates the button text with the appropriate answer text.
+ * The function then adds an event listener to the buttons in order to call the 
+ * generateQuestion function for the follow up question.
  */
 
 function displayAnswers(key) {
@@ -165,13 +173,15 @@ function displayAnswers(key) {
 }
 
 /**
- * This function will check whether a clicked button has an id that is a key to generate further questions, if so
- * it will call the generateQuestion function and if not it will call the solution function to provide the user with
- * the final screen.
+ * This function will check whether a clicked button has an id that is a key to 
+ * generate further questions, if so it will call the generateQuestion function 
+ * and if not it will call the solution function to provide the user with the 
+ * final screen.
  */
 
 function goNextScreen() {
-    const keyArray = ["start", "bears", "talk", "anger", "book", "cthulu", "suckers", "hitting", "attention", "religion", "arrows", "violence"];
+    const keyArray = ["start", "bears", "talk", "anger", "book", "cthulu",
+        "suckers", "hitting", "attention", "religion", "arrows", "violence"];
 
     if (keyArray.includes(this.id)) {
         generateQuestion(this.id);
@@ -181,7 +191,8 @@ function goNextScreen() {
 }
 
 /**
- * This function stores the classDict dictionary, which holds the final answer to the quiz. 
+ * This function stores the classDict dictionary, which holds the final answer 
+ * to the quiz. 
  * When passed a key, it will return the description of the appropriate class.
  */
 
@@ -191,45 +202,82 @@ function solution(key) {
     const classDict = {
         "barbarian": `<h2>${characterName} is a Barbarian!</h2>
         <p>You feel the fury of battle in your veins!</p>
-        <p>In combat, your rage powers you through any encounter, although you're probably not smart enough to read this.</p>
-        <p>You get really swole when you're angry. Basically, you're the Incredible Hulk</p>`,
+        <p>In combat, your rage powers you through any encounter, although 
+        you're probably not smart enough to read this.</p>
+        <p>You get really swole when you're angry. Basically, you're the 
+        Incredible Hulk</p>`,
+
         "paladin": `<h2>${characterName} is a Paladin!</h2>
-        <p>You are a knight of holy justice, smiting evildoers and upholding the law. You are also likely to be an insufferable goody-two-shoes.</p>
-        <p>You can use most weapons and armour, and you also have some healing powers. You have a code of honour that you have to live by.</p>`,
+        <p>You are a knight of holy justice, smiting evildoers and upholding 
+        the law. You are also likely to be an insufferable goody-two-shoes.</p>
+        <p>You can use most weapons and armour, and you also have some healing 
+        powers. You have a code of honour that you have to live by.</p>`,
+
         "fighter": `<h2>${characterName} is a Fighter!</h2>
         <p>You are the most vanilla class imaginable.</p>
-        <p>You fight stuff. That's what you're good at. It's a living, I guess.</p>
-        <p>You can use just about any weapon or type of armour and you get a ton of extra feats. You can fight pretty good, is what I'm saying.</p>`,
+        <p>You fight stuff. That's what you're good at. It's a living, 
+        I guess.</p>
+        <p>You can use just about any weapon or type of armour and you get a ton 
+        of extra feats. You can fight pretty good, is what I'm saying.</p>`,
+
         "ranger": `<h2>${characterName} is a Ranger!</h2>
         <p>You like the woods, but not enough to go full druid.</p>
-        <p>You can be either a master archer or a two-weapon fighter, and you have specific enemies that you're good at fighting. Later on, you can do some rubbish nature magic.</p>`,
+        <p>You can be either a master archer or a two-weapon fighter, and you 
+        have specific enemies that you're good at fighting. Later on, you can 
+        do some rubbish nature magic.</p>`,
+
         "rogue": `<h2>${characterName} is a Rogue!</h2>
-        <p>You're a sneaky, thieving scoundrel. You'd rather stab someone in the back than fight face-to-face, you big cheat.</p>
-        <p>You can do extra damage with surprise attacks, and you're great at hiding and stealing stuff.</p>`,
+        <p>You're a sneaky, thieving scoundrel. You'd rather stab someone in the
+         back than fight face-to-face, you big cheat.</p>
+        <p>You can do extra damage with surprise attacks, and you're great at 
+        hiding and stealing stuff.</p>`,
+
         "bard": `<h2>${characterName} is a Bard!</h2>
         <p>You're an all-singing, all-dancing dandy!</p>
         <p>People find you strangely charming. I've no idea why...</p>
-        <p>You can fight a bit, cast spells a bit, sneak a bit, talk a lot, sing, dance, act... Your Bardic music can make your allies more powerful.</p>`,
+        <p>You can fight a bit, cast spells a bit, sneak a bit, talk a lot, 
+        sing, dance, act... Your Bardic music can make your allies more 
+        powerful.</p>`,
+
         "sorceror": `<h2>${characterName} is a Sorceror!</h2>
-        <p>Your magical ancestry means you lucked out in the genetic lottery. Your great-grandma was a dragon, and now you're a superhuman!</p>
-        <p>You can cast magical spells, and your bloodline grants you additional special powers.</p>`,
+        <p>Your magical ancestry means you lucked out in the genetic lottery. 
+        Your great-grandma was a dragon, and now you're a superhuman!</p>
+        <p>You can cast magical spells, and your bloodline grants you additional 
+        special powers.</p>`,
+
         "warlock": `<h2>${characterName} is a Warlock!</h2>
-        <p>You entered into an ungodly pack with some otherwordly being, just so you could do magic?</p>
+        <p>You entered into an ungodly pack with some otherwordly being, just so 
+        you could do magic?</p>
         <p>Didn't think that through, did you?</p>
-        <p>You can cast magical spells, and your pact with your patron gives you other special abilities.</p>`,
+        <p>You can cast magical spells, and your pact with your patron gives you 
+        other special abilities.</p>`,
+
         "wizard": `<h2>${characterName} is a Wizard!</h2>
-        <p>You studied for years to learn what sorcerors can just do with their innate charisma. Bitter much, Pointdexter?</p>
-        <p>You can cast a wide range of spells, many of which may be augmented by your chosen school. You may have a familiar (a sort of magic pet).</p>`,
+        <p>You studied for years to learn what sorcerors can just do with their 
+        innate charisma. Bitter much, Pointdexter?</p>
+        <p>You can cast a wide range of spells, many of which may be augmented 
+        by your chosen school. You may have a familiar (a sort of magic pet).
+        </p>`,
+
         "cleric": `<h2>${characterName} is a Cleric!</h2>
-        <p>You are a channel for your deity's power. Basically, you're a Jehovah's Witness with magic.</p>
-        <p>Your deity grants you the ability to cast spells, and you can control or destroy undead creatures.</p>
+        <p>You are a channel for your deity's power. Basically, you're a 
+        Jehovah's Witness with magic.</p>
+        <p>Your deity grants you the ability to cast spells, and you can control 
+        or destroy undead creatures.</p>
         <p>Despite your piety, you're also fairly handy in a fight.</p>`,
+
         "druid": `<h2>${characterName} is a Druid!</h2>
-        <p>You're a tree-hugging hippy vegan. You probably smell of patchouli oil at best.</p>
-        <p>You can cast magical spells with a nature theme, and get lots of bonuses in the wilds. Later on, you'll be able to turn into a bear, which will make veganism tricky.</p>`,
+        <p>You're a tree-hugging hippy vegan. You probably smell of patchouli 
+        oil at best.</p>
+        <p>You can cast magical spells with a nature theme, and get lots of 
+        bonuses in the wilds. Later on, you'll be able to turn into a bear, 
+        which will make veganism tricky.</p>`,
+
         "monk": `<h2>${characterName} is a Monk!</h2>
-        <p>You are the consumate martial artist, at peace with themselves and the Universe. Think Bruce Lee, only more so.</p>
-        <p>You can fight without weapons and get extra attacks when you do so. You're super agile and can dodge almost anything.</p>`,
+        <p>You are the consumate martial artist, at peace with themselves and 
+        the Universe. Think Bruce Lee, only more so.</p>
+        <p>You can fight without weapons and get extra attacks when you do so. 
+        You're super agile and can dodge almost anything.</p>`,
     };
 
     const revealBox = document.getElementById('reveal-box');
