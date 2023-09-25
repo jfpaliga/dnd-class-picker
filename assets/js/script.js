@@ -16,9 +16,9 @@ resetButton.addEventListener("click", () => {
  */
 
 function startScreen() {
-    clearScreens('start-screen');
+    focusScreen('start-screen');
 
-    let startForm = document.getElementById('start-form');
+    const startForm = document.getElementById('start-form');
     document.getElementById("character-name").focus();
 
     startForm.addEventListener('submit', (event) => {
@@ -32,8 +32,8 @@ function startScreen() {
  * This function will set the display of the sections that are not currently in focus to none and style the current section.
  */
 
-function clearScreens(screen) {
-    const allScreens = document.getElementsByTagName('section');
+function focusScreen(screen) {
+    const allScreens = document.getElementsByClassName('main-display');
     const currentScreen = document.getElementById(screen);
 
     for (const screens of allScreens) {
@@ -47,17 +47,6 @@ function clearScreens(screen) {
 }
 
 /**
- * This function iterates over a set of buttons and clears them of text content.
- */
-
-function clearButtons(buttons) {
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].textContent = "";
-        buttons[i].style.display = "inline-block";
-    }
-}
-
-/**
  * This function holds all the quiz questions, linked by key:value pairs in the questionDict object.
  * The function then checks if the key is in the object and if so replaces the text content of the question box with that of the key value,
  * and then runs the generateAnswers function.
@@ -66,9 +55,9 @@ function clearButtons(buttons) {
 
 
 function generateQuestion(key) {
-    clearScreens('game-screen');
+    focusScreen('game-screen');
 
-    let questionBox = document.getElementById('question-box');
+    const questionBox = document.getElementById('question-box');
 
     const questionDict = {
         "start": "What's your preferred method for solving life's problems?",
@@ -86,7 +75,7 @@ function generateQuestion(key) {
     };
 
     questionBox.textContent = questionDict[key];
-    generateAnswers(key);
+    displayAnswers(key);
 
 }
 
@@ -97,9 +86,8 @@ function generateQuestion(key) {
  * The function then adds an event listener to the buttons in order to call the generateQuestion function for the follow up question.
  */
 
-function generateAnswers(key) {
+function displayAnswers(key) {
     let answerButtons = document.getElementsByClassName('answer-btn');
-    clearButtons(answerButtons);
 
     const answerDict = {
         "start": [
@@ -160,19 +148,20 @@ function generateAnswers(key) {
     };
 
     let choices = answerDict[key];
+    let button;
 
-    for (let i = 0; i < choices.length; i++) {
-        answerButtons[i].textContent = choices[i][0];
-        answerButtons[i].id = choices[i][1];
-    }
-
-    for (const button of answerButtons) {
-        if (button.textContent === "") {
+    for (let i = 0; i < 4; i++) {
+        button = answerButtons[i];
+        button.style.display = "inline-block";
+        if (i >= choices.length) {
             button.style.display = "none";
         } else {
+            button.textContent = choices[i][0];
+            button.id = choices[i][1];
             button.addEventListener('click', goNext);
         }
     }
+
 }
 
 /**
@@ -197,7 +186,7 @@ function goNext() {
  */
 
 function classSolution(key) {
-    clearScreens('class-screen');
+    focusScreen('class-screen');
 
     const classDict = {
         "barbarian": `<h2>${characterName} is a Barbarian!</h2>
