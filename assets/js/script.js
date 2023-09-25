@@ -158,7 +158,7 @@ function displayAnswers(key) {
         } else {
             button.textContent = choices[i][0];
             button.id = choices[i][1];
-            button.addEventListener('click', goNext);
+            button.addEventListener('click', goNextScreen);
         }
     }
 
@@ -166,17 +166,17 @@ function displayAnswers(key) {
 
 /**
  * This function will check whether a clicked button has an id that is a key to generate further questions, if so
- * it will call the generateQuestion function and if not it will call the classSolution function to provide the user with
+ * it will call the generateQuestion function and if not it will call the solution function to provide the user with
  * the final screen.
  */
 
-function goNext() {
+function goNextScreen() {
     const keyArray = ["start", "bears", "talk", "anger", "book", "cthulu", "suckers", "hitting", "attention", "religion", "arrows", "violence"];
 
     if (keyArray.includes(this.id)) {
         generateQuestion(this.id);
     } else {
-        classSolution(this.id);
+        solution(this.id);
     }
 }
 
@@ -185,7 +185,7 @@ function goNext() {
  * When passed a key, it will return the description of the appropriate class.
  */
 
-function classSolution(key) {
+function solution(key) {
     focusScreen('class-screen');
 
     const classDict = {
